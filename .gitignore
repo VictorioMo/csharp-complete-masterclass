@@ -1,0 +1,28 @@
+# Build output
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio files
+.vs/
+
+# NuGet
+*.nupkg
+*.nuget.cache
+project.assets.json
+
+# Logs
+*.log
+
+# JetBrains Rider (if you ever use it)
+.idea/
+
+# OS generated
+Thumbs.db
+.DS_Store
