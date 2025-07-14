@@ -2,8 +2,12 @@
 
 This repository contains projects and exercises from the **Complete C# Masterclass** course by Denis Panjuta (Udemy).
 
-## ✅ Progress
+## Goals
+- Strengthen knowledge of C# and .NET ecosystem
+- Build real-world applications using Visual Studio
+- Practice with Git version control
 
+## ✅ Progress
 - [x] Section 1: Hello World Console App ✅
 - [ ] Section 2: Object-Oriented Programming
 - [ ] Section 3: .NET Console App with File I/O
