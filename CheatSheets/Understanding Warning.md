@@ -77,6 +77,7 @@ While warnings don’t break your code, keeping them minimal improves code reada
 #pragma warning disable CS0168 // Suppresses unused variable warning
 int unusedVar;
 #pragma warning restore CS0168 // Re-enables the warning
+
 🔹 Follow Best Practices
 
 Remove unnecessary variables and methods.
