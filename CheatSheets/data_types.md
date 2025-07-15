@@ -11,6 +11,7 @@ Use this as a quick reference for:
 - Writing more readable and maintainable C# code
 
 _This material complements the early sections of the course and helps reinforce key concepts as you start writing real programs._
+---
 This cheatsheet was created by tutorials.EU – all credit goes to the original author. Shared here for learning purposes only.
 
 ![C# Data Types Cheatsheet](data_types.png)

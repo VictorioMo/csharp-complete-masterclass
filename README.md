@@ -2,7 +2,7 @@
 
 This repository contains projects and exercises from the **Complete C# Masterclass** course by Denis Panjuta (Udemy).
 
-## Goals
+## Goals (both from the course and personal perspective)
 - Strengthen knowledge of C# and .NET ecosystem
 - Build real-world applications using Visual Studio
 - Practice with Git version control
