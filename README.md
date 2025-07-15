@@ -9,11 +9,12 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 
 ## ✅ Progress
 - [x] Section 1: Hello World Console App ✅
-- [ ] Section 2: Object-Oriented Programming
-- [ ] Section 3: .NET Console App with File I/O
-- [ ] Section 4: Desktop App (WPF)
-- [ ] Section 5: CRUD App with DB
-- [ ] Section 6: Unity Game Intro
+- [x] Section 2: Decision making ✅
+- [ ] Section x: Object-Oriented Programming
+- [ ] Section x: .NET Console App with File I/O
+- [ ] Section x: Desktop App (WPF)
+- [ ] Section x: CRUD App with DB
+- [ ] Section x: Unity Game Intro
 
 ## 🧠 Technologies
 - C# (.NET 8.0)
