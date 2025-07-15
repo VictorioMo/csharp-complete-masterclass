@@ -19,6 +19,6 @@ This cheatsheet provides an overview of decision-making fundamentals in C#. It i
 
 ---
 
-![Decision Making in C#](decision_making.png)
+![Decision Making in C#](images/decision_making.png)
 
 

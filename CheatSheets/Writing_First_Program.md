@@ -11,4 +11,4 @@ It covers:
 ---
 This cheatsheet was created by tutorials.EU – all credit goes to the original author. Shared here for learning purposes only.
 
-![Writing First Program](Writing_First_Program.png)
+![Writing First Program](images/Writing_First_Program.png)
