@@ -10,7 +10,7 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 ## ✅ Progress
 - [x] Section 1: Hello World Console App ✅
 - [x] Section 2: Decision making ✅
-- [ ] Section x: Object-Oriented Programming
+- [x] Section 3: Loops ✅
 - [ ] Section x: .NET Console App with File I/O
 - [ ] Section x: Desktop App (WPF)
 - [ ] Section x: CRUD App with DB
