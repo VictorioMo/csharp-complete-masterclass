@@ -11,7 +11,7 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 - [x] Section 1: Hello World Console App ✅
 - [x] Section 2: Decision making ✅
 - [x] Section 3: Loops ✅
-- [ ] Section x: .NET Console App with File I/O
+- [x] Section 4: Functions and Methods ✅
 - [ ] Section x: Desktop App (WPF)
 - [ ] Section x: CRUD App with DB
 - [ ] Section x: Unity Game Intro
