@@ -12,7 +12,7 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 - [x] Section 2: Decision making ✅
 - [x] Section 3: Loops ✅
 - [x] Section 4: Functions and Methods ✅
-- [ ] Section x: Desktop App (WPF)
+- [x] Section 5: Object Oriented Programming ✅
 - [ ] Section x: CRUD App with DB
 - [ ] Section x: Unity Game Intro
 
