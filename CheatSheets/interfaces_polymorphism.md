@@ -19,4 +19,9 @@ This cheatsheet summarizes advanced object-oriented programming topics in C#, in
 
 ---
 
+*Cheatsheet provided by [tutorials.EU](https://tutorials.eu)*  
+*For educational use only. All rights belong to their respective creators.*
+
+---
+
 ![Polymorphism + Advanced OOP + Text File Operations Cheatsheet](images/interfaces_polymorphism.png)
