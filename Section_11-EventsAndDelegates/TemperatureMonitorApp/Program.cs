@@ -1,10 +1,26 @@
 ﻿namespace TemperatureMonitorApp
 {
-    public delegate void TemperatureChangeHandler(string message);
+    //public delegate void TemperatureChangeHandler(string message);
+
+    // The Event Args we want to use (actually created them)
+    public class TemperatureChangeEventArgs : EventArgs
+    {
+        public int Temperature { get; }
+
+        public TemperatureChangeEventArgs(int temperature)
+        {
+            Temperature = temperature;
+        }
+    }
 
     public class TemperatureMonitor
     {
-        public event TemperatureChangeHandler OnTemperatureChange;
+        /* This is the event which is of type EventHandler, a generic delegate which accepts any type,
+         * but for this specific purpose (events) it should be our defined EventArgs type */
+
+        public event EventHandler<TemperatureChangeEventArgs> OnTemperatureChange;
+
+        //public event TemperatureChangeHandler OnTemperatureChange;
 
         private int _temperature;
 
@@ -16,27 +32,31 @@
                 _temperature = value;
                 if (_temperature > 30)
                 {
-                    RaiseOnTemperatureChangeEvent("The temperature is above 30!");
+                    // Notify all subscribers about the temperature change above the 30 limit
+                    InvokeOnTemperatureChangeEvent(new TemperatureChangeEventArgs(_temperature));
                 }
                 if (_temperature < 18)
                 {
-                    RaiseOnTemperatureChangeEvent("The temperature is below 18!");
+                    // Notify all subscribers about the temperature change below the 18 limit
+                    InvokeOnTemperatureChangeEvent(new TemperatureChangeEventArgs(_temperature));
                 }
             }
         }
 
-        protected virtual void RaiseOnTemperatureChangeEvent(string message)
+        protected virtual void InvokeOnTemperatureChangeEvent(TemperatureChangeEventArgs e)
         {
-            OnTemperatureChange?.Invoke(message);
+            // This actually notifies all subscribers
+            OnTemperatureChange?.Invoke(this, e);
         }
 
     }
 
+    // Subscriber class (listeners)
     public class TemperatureAlert
     {
-        public void OnTemperatureChange(string message)
+        public void OnTemperatureChange(object sender, TemperatureChangeEventArgs e)
         {
-            Console.WriteLine("Alert: " + message);
+            Console.WriteLine($"Alert: Temperature is {e.Temperature}, sender is: {sender}");
         }
     }
 
