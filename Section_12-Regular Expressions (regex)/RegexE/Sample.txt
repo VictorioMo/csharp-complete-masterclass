@@ -1,0 +1,39 @@
+﻿1234567890
+		
+		
+202-555-0102
+202-555-0196
+202.555.0196
+202#555#0196
+
+// Challenge find all cellphone number patterns : (\+49|0049|0)\d{3}/\d{8}
+
+0175/12345678
++49165/12312347
+0049165/12312347
+
+abcdefghijklmnopqurtuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+LaLa La La LaLa
+
+// Challenge find all expression patterns : (Mr|Ms)\.? \w*
+
+Mr. Panjuta
+Mr Muller
+Mr Robertson
+Mr. G
+Ms Smith
+Ms Jackson
+
+// Challenge - find website links : https?://(www.)?\w+\.\w+
+https://www.tutorials.eu
+https://tutorials.eu
+http://www.tutorials.eu
+http://tutorials.eu
+
+test@test.com - \w+@\w+\.\w+
+
+
+MetaCharacters (Need to be escaped):
+.[{()\^$|?*+
