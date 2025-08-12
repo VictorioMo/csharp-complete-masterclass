@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ToDo App" Height="450" Width="400"
+        ResizeMode="NoResize">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Button Click="AddToDoButton_Click" Grid.Row="5" Grid.Column="1" Content="Create ToDo" Background="#FFDCD09A" FontWeight="Bold"/>
+        <TextBox x:Name="ToDoInput" Grid.Row="3" Grid.Column="1" Background="#FF00AF6B" Foreground="White" BorderBrush="#FF11CEB0" FontSize="20" />
+        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FFB0B8FF">
+            <StackPanel x:Name="ToDoList">
+
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </Window>

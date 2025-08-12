@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBinding.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,36 +14,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ToDoApp
+namespace DataBinding
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        Person person = new Person
+        {
+            Name = "Victorio",
+            Age = 24
+        };
+
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = person;
         }
-
-        private void AddToDoButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string toDoText = ToDoInput.Text;
-            if (!string.IsNullOrEmpty(toDoText))
-            {
-                TextBlock toDoItem = new TextBlock
-                {
-                    Text = toDoText,
-                    Margin = new Thickness(10),
-                    Foreground = new SolidColorBrush(Colors.White),
-                    FontSize = 16.0
-                };
-
-                ToDoList.Children.Add(toDoItem);
-
-                ToDoInput.Clear();
-                
-            }
+            string personData = person.Name + " is " + person.Age + " years old.";
+            MessageBox.Show(personData);
         }
     }
 }
