@@ -22,14 +22,15 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 - [x] Section 12: Regular Expressions (regex) ✅
 - [x] Section 13: Windows Presentation Foundation (WPF) ✅
 - [x] Section 14: WPF Project - Currency Converter (Static) ✅
-- [ ] Section 15: Using Databases with C#
+- [x] Section 15: Using Databases with C# ✅
+- [ ] Section 16: WPF Project - Currency Converter (Part 2)
 		... and more ...
 
 ## 🧠 Technologies
 - C# (.NET 8.0)
 - Visual Studio 2022
 - Git, GitHub, Git Extensions
-- WPF, WinForms, Unity (coming up)
+- WPF, Unity (coming up)
 
 ---
 

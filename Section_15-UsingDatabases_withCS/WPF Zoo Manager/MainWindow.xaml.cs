@@ -123,10 +123,81 @@ namespace WPF_Zoo_Manager
             }
         }
 
+        private void ShowSelectedZooInTextBox()
+        {
+            try
+            {
+                string query = "SELECT * FROM Zoo WHERE Id = @ZooId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                using (sqlDataAdapter)
+                {
+                    sqlCommand.Parameters.AddWithValue("@ZooId", ListZoos.SelectedValue);
+
+                    DataTable zooTable = new DataTable();
+                    sqlDataAdapter.Fill(zooTable);
+
+                    inputText.Text = zooTable.Rows[0]["Location"].ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void ShowSelectedAnimalInTextBox()
+        {
+            try
+            {
+                string query = "SELECT * FROM Animal WHERE Id = @AnimalId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                using (sqlDataAdapter)
+                {
+                    sqlCommand.Parameters.AddWithValue("@AnimalId", ListAnimals.SelectedValue);
+
+                    DataTable animalTable = new DataTable();
+                    sqlDataAdapter.Fill(animalTable);
+
+                    inputText.Text = animalTable.Rows[0]["Name"].ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void ListZoos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListBox list = sender as ListBox;
-            if (list.SelectedItem != null) ShowAssociatedAnimals();
+            if (list.SelectedItem != null)
+            {
+                ShowAssociatedAnimals();
+                ShowSelectedZooInTextBox();
+            }
+        }
+
+        private void ListAnimals_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBox list = sender as ListBox;
+            if (list.SelectedItem != null)
+            {
+                ShowSelectedAnimalInTextBox();
+            }
+        }
+
+        private void OnInputTextSelect(object sender, RoutedEventArgs e)
+        {
+            if (inputText.Text.Equals("Name of Zoo or Animal"))
+                inputText.Text = string.Empty;
         }
 
         private void OnDeleteZooButtonPress(object sender, RoutedEventArgs e)
@@ -142,7 +213,6 @@ namespace WPF_Zoo_Manager
 
                     sqlConnection.Open();
                     int rowsAffected = sqlCommand.ExecuteNonQuery();
-                    sqlConnection.Close();
 
                     if (rowsAffected > 0)
                     {
@@ -153,7 +223,6 @@ namespace WPF_Zoo_Manager
                         MessageBox.Show("Nothing changed.");
                     }
                 }
-                //ListZoos.UnselectAll();
             }
             catch (Exception ex)
             {
@@ -161,7 +230,257 @@ namespace WPF_Zoo_Manager
             }
             finally
             {
+                sqlConnection.Close();
                 ShowZoos();
+            }
+        }
+
+        private void OnAddZooButtonPress(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO Zoo VALUES (@Location)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                using (sqlCommand)
+                {
+                    sqlCommand.Parameters.AddWithValue("@Location", inputText.Text);
+
+                    sqlConnection.Open();
+                    int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} entries were added.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowZoos();
+            }
+        }
+
+        private void OnAddAnimalToZooButtonPress(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO ZooAnimal VALUES (@ZooId, @AnimalId)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                using (sqlCommand)
+                {
+                    sqlCommand.Parameters.AddWithValue("@ZooId", ListZoos.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@AnimalId", ListAnimals.SelectedValue);
+
+                    sqlConnection.Open();
+                    int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} entries were added.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAssociatedAnimals();
+            }
+        }
+
+        private void OnRemoveAnimalToZooButtonPress(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "DELETE FROM ZooAnimal WHERE ZooId = @ZooId AND AnimalId = @AnimalId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                using (sqlCommand)
+                {
+                    sqlCommand.Parameters.AddWithValue("@ZooId", ListZoos.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@AnimalId", ListAssociatedAnimals.SelectedValue);
+
+                    sqlConnection.Open();
+                    int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} entries were deleted.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAssociatedAnimals();
+            }
+        }
+
+        private void OnDeleteAnimalButtonPress(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "DELETE FROM Animal WHERE Id = @AnimalId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                using (sqlCommand)
+                {
+                    sqlCommand.Parameters.AddWithValue("@AnimalId", ListAnimals.SelectedValue);
+
+                    sqlConnection.Open();
+                    int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} entries were deleted.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAnimals();
+            }
+        }
+
+        private void OnCreateAnimalButtonPress(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO Animal VALUES (@Animal)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                using (sqlCommand)
+                {
+                    sqlCommand.Parameters.AddWithValue("@Animal", inputText.Text);
+
+                    sqlConnection.Open();
+                    int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} entries were added.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAnimals();
+            }
+        }
+
+        private void OnUpdateZooButtonPress(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "UPDATE Zoo SET Location = @Location WHERE Id = @ZooId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                using (sqlCommand)
+                {
+                    sqlCommand.Parameters.AddWithValue("@ZooId", ListZoos.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@Location", inputText.Text);
+
+                    sqlConnection.Open();
+                    int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} entries were added.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowZoos();
+            }
+        }
+
+        private void OnUpdateAnimalButtonPress(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "UPDATE Animal SET Name = @AnimalName WHERE Id = @AnimalId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                using (sqlCommand)
+                {
+                    sqlCommand.Parameters.AddWithValue("@AnimalId", ListAnimals.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@AnimalName", inputText.Text);
+
+                    sqlConnection.Open();
+                    int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} entries were added.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAnimals();
             }
         }
     }
