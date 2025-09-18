@@ -32,7 +32,8 @@ namespace LinqToSQL
             SqlConnInit();
             DataContext = new LinqToSQLDataClassesDataContext(sqlConnection);
 
-            InsertUniversities();
+            //InsertUniversities();
+            InsertStudent();
         }
 
         private void SqlConnInit()
@@ -69,8 +70,23 @@ namespace LinqToSQL
 
         public void InsertStudent()
         {
+            DataContext.ExecuteCommand("DELETE FROM Student");
+
             University yale = DataContext.Universities.First(un => un.Name.Equals("Yale"));
             University beijingTech = DataContext.Universities.First(un => un.Name.Equals("Beijing Tech"));
+
+            List<Student> students = new List<Student>();
+
+            students.Add(new Student { Name = "Carla", Gender = "female", UniversityId = yale.Id });
+            students.Add(new Student { Name = "Tony" , Gender = "male"  , University = yale });
+            students.Add(new Student { Name = "Leyla", Gender = "female", University = beijingTech });
+            students.Add(new Student { Name = "James", Gender = "male"  , University = beijingTech });
+
+            DataContext.Students.InsertAllOnSubmit(students);
+            DataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = DataContext.Students;
+
         }
     }
 }

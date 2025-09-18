@@ -46,5 +46,17 @@ namespace LinqToSQL.Properties {
                 return ((string)(this["CSharpMasterClassConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Victorio-GigaPC\\CSHCOURSESQL;Initial Catalog=CSharpMasterClass;Persis" +
+            "t Security Info=True;User ID=sa;Pooling=False;Encrypt=True;TrustServerCertificat" +
+            "e=True")]
+        public string CSharpMasterClassConnectionString2 {
+            get {
+                return ((string)(this["CSharpMasterClassConnectionString2"]));
+            }
+        }
     }
 }
