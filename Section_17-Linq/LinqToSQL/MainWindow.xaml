@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LinqToSQL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="520">
+        Title="UniversityManager" Height="450" Width="520">
     <Grid>
         <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="400" Width="500" Margin="10" VerticalAlignment="Top"/>
     </Grid>

@@ -12,7 +12,24 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Gender" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UniversityId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Student_StudentLecture" Member="StudentLectures" ThisKey="Id" OtherKey="StudentId" Type="StudentLecture" />
       <Association Name="University_Student" Member="University" ThisKey="UniversityId" OtherKey="Id" Type="University" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lecture" Member="Lectures">
+    <Type Name="Lecture">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Lecture_StudentLecture" Member="StudentLectures" ThisKey="Id" OtherKey="LectureId" Type="StudentLecture" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StudentLecture" Member="StudentLectures">
+    <Type Name="StudentLecture">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StudentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LectureId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Lecture_StudentLecture" Member="Lecture" ThisKey="LectureId" OtherKey="Id" Type="Lecture" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Student_StudentLecture" Member="Student" ThisKey="StudentId" OtherKey="Id" Type="Student" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>

@@ -33,7 +33,13 @@ namespace LinqToSQL
             DataContext = new LinqToSQLDataClassesDataContext(sqlConnection);
 
             //InsertUniversities();
-            InsertStudent();
+            //InsertStudent();
+            //InsertLectures();
+            //InsertStudentLectureAssociation();
+            //GetAllStudentsFromYale();
+            //GetAllUniversitiesWithMales();
+            //GetAllBeijingTechLectures();
+            UpdateStudentName( name: "Tony", newName: "Antonio");
         }
 
         private void SqlConnInit()
@@ -87,6 +93,96 @@ namespace LinqToSQL
 
             MainDataGrid.ItemsSource = DataContext.Students;
 
+        }
+
+        public void InsertLectures()
+        {
+            DataContext.ExecuteCommand("DELETE FROM Lecture");
+
+            DataContext.Lectures.InsertOnSubmit(new Lecture { Name = "Math"    });
+            DataContext.Lectures.InsertOnSubmit(new Lecture { Name = "Physics" });
+
+            DataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource= DataContext.Lectures;
+        }
+
+        public void InsertStudentLectureAssociation()
+        {
+            DataContext.ExecuteCommand("DELETE FROM StudentLecture");
+
+            // Input:
+            List<Student> students = new List<Student>(DataContext.Students);
+            List<Lecture> lectures = new List<Lecture>(DataContext.Lectures);
+
+            // Output:
+            List<StudentLecture> studentLectures = new List<StudentLecture>();
+
+            foreach (Student student in students)
+            {
+                foreach (Lecture lecture in lectures)
+                {
+                    if (student.Name == "Carla" && lecture.Name == "Math")
+                        studentLectures.Add(new StudentLecture { Student = student, Lecture = lecture });
+
+                    if (student.Name == "Tony"  && lecture.Name == "Math")
+                        studentLectures.Add(new StudentLecture { Student = student, Lecture = lecture });
+
+                    if (student.Name == "Leyla" && lecture.Name == "Physics")
+                        studentLectures.Add(new StudentLecture { Student = student, Lecture = lecture });
+
+                    if (student.Name == "James" && lecture.Name == "Physics")
+                        studentLectures.Add(new StudentLecture { Student = student, Lecture = lecture });
+
+                }
+            }
+
+            DataContext.StudentLectures.InsertAllOnSubmit(studentLectures);
+            DataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = DataContext.StudentLectures;
+        }
+
+        public void GetAllStudentsFromYale()
+        {
+            var studentsFromYale = from student in DataContext.Students
+                                   where student.University.Name == "Yale"
+                                   select student;
+
+            MainDataGrid.ItemsSource = studentsFromYale;
+        }
+
+        public void GetAllUniversitiesWithMales()
+        {
+            var allUnisMale = from student in DataContext.Students
+                              join university in DataContext.Universities
+                              on student.University equals university
+                              where student.Gender == "male"
+                              select university;
+
+            MainDataGrid.ItemsSource = allUnisMale;
+        }
+
+        public void GetAllBeijingTechLectures()
+        {
+            var allLecturesAtBeijingTech = from sl in DataContext.StudentLectures
+                                           join student in DataContext.Students
+                                           on sl.StudentId equals student.Id
+                                           where student.University.Name.Equals("Beijing Tech")
+                                           select sl.Lecture;
+
+            MainDataGrid.ItemsSource = allLecturesAtBeijingTech;
+        }
+
+        public void UpdateStudentName(string name, string newName)
+        {
+            Student s = DataContext.Students.FirstOrDefault(st => st.Name == name);
+
+            s.Name = newName;
+
+            DataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = DataContext.Students;
         }
     }
 }
