@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace LinqToSQL
 {
@@ -39,7 +40,8 @@ namespace LinqToSQL
             //GetAllStudentsFromYale();
             //GetAllUniversitiesWithMales();
             //GetAllBeijingTechLectures();
-            UpdateStudentName( name: "Tony", newName: "Antonio");
+            //UpdateStudentName( name: "Tony", newName: "Antonio");
+            DeleteStudentName("James");
         }
 
         private void SqlConnInit()
@@ -180,6 +182,16 @@ namespace LinqToSQL
 
             s.Name = newName;
 
+            DataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = DataContext.Students;
+        }
+
+        public void DeleteStudentName(string name)
+        {
+            Student s = DataContext.Students.FirstOrDefault(st => st.Name == name);
+
+            DataContext.Students.DeleteOnSubmit(s);
             DataContext.SubmitChanges();
 
             MainDataGrid.ItemsSource = DataContext.Students;

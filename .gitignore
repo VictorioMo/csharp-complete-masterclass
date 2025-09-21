@@ -27,3 +27,6 @@ project.assets.json
 # OS generated
 Thumbs.db
 .DS_Store
+
+# Sensitive data
+*.secret
