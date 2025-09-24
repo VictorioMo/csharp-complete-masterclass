@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyApp
 {
-    internal class WritingComments
+    internal class CommentsAndDocumentation
     {
         /* Always specify WHY and BECAUSE when describing your code */
 
@@ -41,5 +41,27 @@ namespace MyApp
         }
 
         /* Also in Visual Studio you can view all TODOs by accesing View -> Task List*/
+
+        // When documenting code, use this:
+
+        ///<summary>
+        ///
+        /// </summary>
+        /// 
+
+        // This is used to explain what the function, class or property does,
+        // and it will also appear when hovering with the mouse
+
+        // ex:
+        /// <summary>
+        /// Calculates the square root of a given number x, and returns the result.
+        /// </summary>
+        /// <param name="x"> The number of which the square root shall be calculated. </param>
+        /// <returns>Returns the square root of x.</returns>
+        public double SquareRoot(double x)
+        {
+            //code
+            return 0;
+        }
     }
 }
