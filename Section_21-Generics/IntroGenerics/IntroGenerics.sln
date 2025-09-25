@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroGenerics", "IntroGenerics.csproj", "{48600EAE-0293-4CDD-B1CF-AD37BFB3804A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48600EAE-0293-4CDD-B1CF-AD37BFB3804A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48600EAE-0293-4CDD-B1CF-AD37BFB3804A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48600EAE-0293-4CDD-B1CF-AD37BFB3804A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48600EAE-0293-4CDD-B1CF-AD37BFB3804A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CF6AA60-8ED6-4214-AD68-8E2E95849D84}
+	EndGlobalSection
+EndGlobal
