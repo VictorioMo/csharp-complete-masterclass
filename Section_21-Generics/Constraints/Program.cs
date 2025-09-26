@@ -15,6 +15,9 @@
             var product = new Product();
             repository.Add(product);
 
+            /* Comparer.AreEqual(1, 1); - wont compile due to constraint */
+            var product2 = new Product();
+            Comparer.AreEqual(product, product2);
         }
     }
 
