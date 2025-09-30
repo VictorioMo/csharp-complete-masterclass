@@ -50,5 +50,44 @@ namespace FlightTest
 
             flight.BookingList.Should().ContainEquivalentOf(new Booking("passenger1@somemail.com", 4));
         }
+
+        [Theory]
+        [InlineData( 3, 1,  1, 3)]
+        [InlineData( 4, 2,  2, 4)]
+        [InlineData(10, 6,  4, 8)]
+        //[InlineData(13, 3, 10, 2)]
+        public void Cancelling_bookings_frees_up_the_seats(
+            int initCapacity,
+            int numberOfSeatsToBook,
+            int numberOfSeatsToCancel,
+            int remainingNumberOfSeats)
+        {
+            // given
+            var flight = new Flight(seatCapacity: initCapacity);
+            flight.Book(passengerEmail: "paaw@mowa.ii", numberOfSeats: numberOfSeatsToBook);
+
+            // when
+            flight.CancelBooking(passengerEmail: "paaw@mowa.ii", numberOfSeats: numberOfSeatsToCancel);
+
+            // then
+            flight.RemainingNumberOfSeats.Should().Be(remainingNumberOfSeats);
+        }
+
+        [Fact]
+        public void Doesnt_cancel_booking_if_email_not_found()
+        {
+            var flight = new Flight(seatCapacity: 5);
+            var error = flight.CancelBooking(passengerEmail: "paaw@mowa.ii", numberOfSeats: 3);
+            error.Should().BeOfType<BookingNotFoundError>();
+        }
+
+        [Fact]
+        public void Returns_null_when_successfully_cancel_booking()
+        {
+            var flight = new Flight(seatCapacity: 5);
+            flight.Book(passengerEmail: "paaw@mowa.ii", numberOfSeats: 3);
+            var error = flight.CancelBooking(passengerEmail: "paaw@mowa.ii", numberOfSeats: 3);
+            error.Should().BeNull();
+        }
     }
 }
