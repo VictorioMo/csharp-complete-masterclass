@@ -8,19 +8,25 @@ namespace Application.Tests
 {
     public class FlightApplicationSpecifications
     {
+        readonly Entities entities = new Entities(new DbContextOptionsBuilder<Entities>()
+                                            .UseInMemoryDatabase("Flights")
+                                            .Options);
+        readonly BookingService BookingService;
+
+        public FlightApplicationSpecifications()
+        {
+            BookingService = new BookingService(entities: entities);
+        }
+
         [Theory]
         [InlineData("M@n.c"  , 2)]
         [InlineData("a@b.c"  , 4)]
         [InlineData("n@k.com", 1)]
         public void Books_flights(string passengerEmail, int numberOfSeats)
         {
-            var entities = new Entities(new DbContextOptionsBuilder<Entities>()
-                .UseInMemoryDatabase("Flights")
-                .Options);
             var flight = new Flight(5);
             entities.Flights.Add(flight);
 
-            var BookingService = new BookingService(entities: entities);
             BookingService.Book(new BookDto(
                 flightId: flight.Id, passengerEmail, numberOfSeats));
             BookingService.FindBookings(flight.Id).Should().ContainEquivalentOf(
@@ -32,10 +38,20 @@ namespace Application.Tests
         public void Cancels_Bookings()
         {
             // Given
+            var flight = new Flight(5);
+            entities.Flights.Add(flight);
 
+            BookingService.Book(new BookDto(
+                flightId: flight.Id, passengerEmail: "m@m.co", 2));
             // When
+            BookingService.CancelBooking(
+                new CancelBookingDto(flightId: Guid.NewGuid(),
+                    passengerEmail: "m@m.co",
+                    numberOfSeats: 2));
 
             // Then
+            BookingService.GetRemainingNumberOfSeatsFor(flight.Id)
+                .Should().Be(5);
         }
     }
 }

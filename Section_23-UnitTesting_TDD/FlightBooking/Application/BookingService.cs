@@ -28,5 +28,15 @@ namespace Application
                     booking.Email,
                     booking.NumberOfSeats));
         }
+
+        public void CancelBooking(CancelBookingDto cancelBookingDto)
+        {
+            
+        }
+
+        public object GetRemainingNumberOfSeatsFor(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
