@@ -8,9 +8,14 @@ namespace Application
 {
     public class CancelBookingDto
     {
+        public Guid FlighId { get; set; }
+        public string PassengerEmail { get; set; }
+        public int NumberOfSeats { get; set; }
         public CancelBookingDto(Guid flightId, string passengerEmail, int numberOfSeats)
         {
-
+            FlighId = flightId;
+            PassengerEmail = passengerEmail;
+            NumberOfSeats = numberOfSeats;
         }
     }
 }

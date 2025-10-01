@@ -34,24 +34,27 @@ namespace Application.Tests
                 );
         }
 
-        [Fact]
-        public void Cancels_Bookings()
+        [Theory]
+        [InlineData(3)]
+        [InlineData(5)]
+        [InlineData(10)]
+        public void Frees_up_number_of_seats_if_booking_canceled(int initialCapacity)
         {
             // Given
-            var flight = new Flight(5);
+            var flight = new Flight(initialCapacity);
             entities.Flights.Add(flight);
 
             BookingService.Book(new BookDto(
                 flightId: flight.Id, passengerEmail: "m@m.co", 2));
             // When
             BookingService.CancelBooking(
-                new CancelBookingDto(flightId: Guid.NewGuid(),
+                new CancelBookingDto(flightId: flight.Id,
                     passengerEmail: "m@m.co",
                     numberOfSeats: 2));
 
             // Then
             BookingService.GetRemainingNumberOfSeatsFor(flight.Id)
-                .Should().Be(5);
+                .Should().Be(initialCapacity);
         }
     }
 }

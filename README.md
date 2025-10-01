@@ -30,14 +30,14 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 - [x] Section 20: C# Clean Code ✅
 - [x] Section 21: Generics ✅
 - [x] Section 22: Threads ✅
-- [ ] Section 23: Unit Testing - Test Driven Development (TDD)
-		... and more ...
+- [x] Section 23: Unit Testing - Test Driven Development (TDD) ✅
+- [ ] Section 24: UNITY - Basics
 
 ## 🧠 Technologies
 - C# (.NET 8.0)
 - Visual Studio 2022
 - Git, GitHub, Git Extensions
-- WPF, Unity (coming up)
+- WPF, xUnit, Unity Game Engine
 
 ---
 
