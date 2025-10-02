@@ -31,13 +31,20 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 - [x] Section 21: Generics ✅
 - [x] Section 22: Threads ✅
 - [x] Section 23: Unit Testing - Test Driven Development (TDD) ✅
-- [ ] Section 24: UNITY - Basics
+- [x] Section 24: UNITY - Basics ✅
+- [ ] Section 25: UNITY - Building the Game Pong
+- [ ] Section 26: UNITY - Building a Zig Zag clone
+- [ ] Section 27: UNITY - Building a Fruit Ninja clone
+
+   **The end**
+---
 
 ## 🧠 Technologies
 - C# (.NET 8.0)
 - Visual Studio 2022
 - Git, GitHub, Git Extensions
-- WPF, xUnit, Unity Game Engine
+- WPF, xUnit
+- Unity Game Engine
 
 ---
 
