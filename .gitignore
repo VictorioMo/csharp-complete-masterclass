@@ -12,6 +12,15 @@ packages/
 
 # Visual Studio files
 .vs/
+*.csproj
+*.sln
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.mdb
+*.opendb
+*.VC.db
 
 # NuGet
 *.nupkg
@@ -27,6 +36,26 @@ project.assets.json
 # OS generated
 Thumbs.db
 .DS_Store
+
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# Unity auto-generated folders
+[Aa]ssets/TutorialInfo/
+
+# Crash reports
+sysinfo.txt
+
+# Unity build artifacts
+*.apk
+*.aab
+*.unitypackage
 
 # Sensitive data
 *.secret
