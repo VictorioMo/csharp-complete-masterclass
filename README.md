@@ -32,7 +32,7 @@ This repository contains projects and exercises from the **Complete C# Mastercla
 - [x] Section 22: Threads ✅
 - [x] Section 23: Unit Testing - Test Driven Development (TDD) ✅
 - [x] Section 24: UNITY - Basics ✅
-- [ ] Section 25: UNITY - Building the Game Pong
+- [x] Section 25: UNITY - Building the Game Pong ✅
 - [ ] Section 26: UNITY - Building a Zig Zag clone
 - [ ] Section 27: UNITY - Building a Fruit Ninja clone
 
