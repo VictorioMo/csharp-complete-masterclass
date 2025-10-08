@@ -29,15 +29,15 @@ Each document focuses on one topic — from syntax and OOP to debugging and clea
 
 | Topic | Description |
 |:--|:--|
-| [💡 DRY – Don’t Repeat Yourself](../CleanCode-DRY.md) | Reduce duplication, reuse logic, and improve maintainability. |
-| [🧼 KISS – Keep It Simple, Stupid](../CleanCode-KISS.md) | Focus on simplicity, clarity, and minimal abstraction. |
-| [⚠️ Exception Handling](../ExceptionHandling.md) | How to throw, catch, and manage exceptions properly. |
-| [🧱 SOLID Principles – Overview](../SOLID-Introduction.md) | Introduction to all SOLID principles. |
-| &nbsp;&nbsp;↳ [S – Single Responsibility Principle](../SOLID-SRP.md) | Each class should have one reason to change. |
-| &nbsp;&nbsp;↳ [O – Open/Closed Principle](../SOLID-OCP.md) | Open for extension, closed for modification. |
-| &nbsp;&nbsp;↳ [L – Liskov Substitution Principle](../SOLID-LSP.md) | Derived classes must work wherever base classes do. |
-| &nbsp;&nbsp;↳ [I – Interface Segregation Principle](../SOLID-ISP.md) | Avoid fat interfaces — keep them focused. |
-| &nbsp;&nbsp;↳ [D – Dependency Inversion Principle](../SOLID-DIP.md) | Depend on abstractions, not concretions. |
+| [💡 DRY – Don’t Repeat Yourself](../Section_20-CleanCode/Principles/DRY_DontRepeatYourself.md) | Reduce duplication, reuse logic, and improve maintainability. |
+| [🧼 KISS – Keep It Simple, Stupid](../Section_20-CleanCode/Principles/KISS_KeepItSimpleStupid.md) | Focus on simplicity, clarity, and minimal abstraction. |
+| [⚠️ Exception Handling](../Section_20-CleanCode/Principles/ExceptionHandling.md) | How to throw, catch, and manage exceptions properly. |
+| [🧱 SOLID Principles – Overview](../Section_20-CleanCode/Principles/SOLID.md) | Introduction to all SOLID principles. |
+| &nbsp;&nbsp;↳ [S – Single Responsibility Principle](../Section_20-CleanCode/Principles/SOLID-SRP.md) | Each class should have one reason to change. |
+| &nbsp;&nbsp;↳ [O – Open/Closed Principle](../Section_20-CleanCode/Principles/SOLID-OCP.md) | Open for extension, closed for modification. |
+| &nbsp;&nbsp;↳ [L – Liskov Substitution Principle](../Section_20-CleanCode/Principles/SOLID-LSP.md) | Derived classes must work wherever base classes do. |
+| &nbsp;&nbsp;↳ [I – Interface Segregation Principle](../Section_20-CleanCode/Principles/SOLID-ISP.md) | Avoid fat interfaces — keep them focused. |
+| &nbsp;&nbsp;↳ [D – Dependency Inversion Principle](../Section_20-CleanCode/Principles/SOLID-DIP.md) | Depend on abstractions, not concretions. |
 
 ---
 
