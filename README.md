@@ -1,51 +1,82 @@
-# Complete C# Masterclass – Projects
+# 🧠 C# Complete Masterclass
 
-This repository contains projects and exercises from the **Complete C# Masterclass** course by Denis Panjuta (Udemy).
+This repository is my **learning journey through the “Complete C# Masterclass”** course by Denis Panjuta.  
+It contains exercises, challenges, and small projects built while studying C#, .NET, and WPF — all organized by sections and continuously refined with clean code practices.
 
-## Goals (both from the course and personal perspective)
-- Strengthen knowledge of C# and .NET ecosystem
-- Build real-world applications using Visual Studio
+---
+
+## 📘 Overview
+
+I created this repo to:
+- Learn C# from fundamentals to advanced topics (OOP, WPF, LINQ, SQL, JSON, APIs, Unity)
+- Build and document my progress transparently
+- Apply **clean code**, **SOLID**, and **TDD** principles in small projects
+- Gradually move toward **.NET**, **Unity**, and **game development**
 - Practice with Git version control
 
-## ✅ Progress
-- [x] Section  1: Hello World Console App ✅
-- [x] Section  2: Decision making ✅
-- [x] Section  3: Loops ✅
-- [x] Section  4: Functions and Methods ✅
-- [x] Section  5: Object Oriented Programming ✅
-- [x] Section  6: Collections ✅
-- [x] Section  7: Error Handling ✅
-- [x] Section  8: Inheritance ✅
-- [x] Section  9: Interfaces and Polymorphism ✅
-- [x] Section 10: Structs ✅
-- [x] Section 11: Events and Delegates ✅
-- [x] Section 12: Regular Expressions (regex) ✅
-- [x] Section 13: Windows Presentation Foundation (WPF) ✅
-- [x] Section 14: WPF Project - Currency Converter (Static) ✅
-- [x] Section 15: Using Databases with C# ✅
-- [x] Section 16: WPF Project - Currency Converter (using SQL database) ✅
-- [x] Section 17: Linq ✅
-- [x] Section 18: WPF Project - Currency Converter (using an API and JSON) ✅
-- [x] Section 19: Coding exercises for interviews ✅
-- [x] Section 20: C# Clean Code ✅
-- [x] Section 21: Generics ✅
-- [x] Section 22: Threads ✅
-- [x] Section 23: Unit Testing - Test Driven Development (TDD) ✅
-- [x] Section 24: UNITY - Basics ✅
-- [x] Section 25: UNITY - Building the Game Pong ✅
-- [x] Section 26: UNITY - Building a Zig Zag clone ✅
-- [ ] Section 27: UNITY - Building a Fruit Ninja clone
-
-   **The end**
----
-
-## 🧠 Technologies
-- C# (.NET 8.0)
-- Visual Studio 2022
-- Git, GitHub, Git Extensions
-- WPF, xUnit
-- Unity Game Engine
+This is not just a study repo — it’s a growing portfolio of how I learn, write, and improve code.
 
 ---
 
-Feel free to follow along as I build a modern .NET portfolio from scratch 🚀
+## 📂 Structure & Progress
+
+Each section corresponds to a course topic.
+
+| Section | Focus | Status |
+|:--|:--|:--|
+| 01 | Hello World, basic syntax | ✅ Completed |
+| 02 | Conditions, logical statements | ✅ Completed |
+| 03 | Loops (for, while, foreach) | ✅ Completed |
+| 04 | Functions & Methods | ✅ Completed |
+| 05 | Object Oriented Programming | ✅ Completed |
+| 06 | Collections | ✅ Completed |
+| 07 | Error Handling | ✅ Completed |
+| 08 | Inheritance | ✅ Completed |
+| 09 | Interfaces and Polymorphism | ✅ Completed |
+| 10 | Structs | ✅ Completed |
+| 11 | Events and Delegates | ✅ Completed |
+| 12 | Regular Expressions (regex) | ✅ Completed |
+| 13 | Windows Presentation Foundation (WPF) | ✅ Completed |
+| 14 | WPF Project - Currency Converter (using hard coded values) | ✅ Completed |
+| 15 | Using Databases (SQL) | ✅ Completed |
+| 16 | WPF Project - Currency Converter (using an SQL database) | ✅ Completed |
+| 17 | Linq | ✅ Completed |
+| 18 | WPF Project - Currency Converter (using an API and JSON) | ✅ Completed |
+| 19 | Coding exercises for interviews | ✅ Completed |
+| 20 | Clean Code and coding principles | ✅ Completed |
+| 21 | Generics | ✅ Completed |
+| 22 | Threads - multithreading, tasks & async/await | ✅ Completed |
+| 23 | Unit Testing - Test Driven Development (TDD) | ✅ Completed |
+| 24 | UNITY - Basics (colliders, rigidbody, gameobjects, materials) | ✅ Completed |
+| 25 | UNITY - Game Pong (user input, 2d/3d, sounds, scene management) | ✅ Completed |
+| 26 | UNITY - Zig Zag clone (procedural generation, particles, animation) | ✅ Completed |
+| 27 | UNITY - Fruit Ninja clone (will find out) | 🛠 In progress |
+
+
+---
+
+## 🚀 Next Steps
+
+- ✨ Create standalone repos for my Unity mini-games  
+- 🧩 Expand WPF projects with improved UI and error handling  
+- 🧠 Start applying **Design Patterns** and **Dependency Injection**  
+- 🕹 Move into **Unity game development** full-time after course completion  
+
+---
+
+## 🧰 Tech Stack
+
+- **Languages:** C#, XAML, SQL  
+- **Frameworks:** .NET, WPF  
+- **Tools:** Visual Studio, Git, Git Extensions  
+- **Concepts:** SOLID, TDD
+- **Databases:** SQL Server, JSON serialization  
+- **Game Engine:** Unity
+
+---
+
+## 🪄 Notes & Insights
+
+I documented key takeaways as Markdown sheets (📘 `/Cheatsheets` folder)
+
+
