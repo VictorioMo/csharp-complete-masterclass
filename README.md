@@ -50,7 +50,7 @@ Each section corresponds to a course topic.
 | 24 | UNITY - Basics (colliders, rigidbody, gameobjects, materials) | ✅ Completed |
 | 25 | UNITY - Game Pong (user input, 2d/3d, sounds, scene management) | ✅ Completed |
 | 26 | UNITY - Zig Zag clone (procedural generation, particles, animation) | ✅ Completed |
-| 27 | UNITY - Fruit Ninja clone (will find out) | 🛠 In progress |
+| 27 | UNITY - Fruit Ninja clone (trace, exporting to Android, include ads) | ✅ Completed |
 
 
 ---
